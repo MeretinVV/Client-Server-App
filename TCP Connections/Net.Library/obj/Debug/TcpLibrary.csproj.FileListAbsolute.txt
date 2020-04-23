@@ -1,0 +1,5 @@
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Net.Library\bin\Debug\SomeProject.Library.dll
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Net.Library\bin\Debug\SomeProject.Library.pdb
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Net.Library\obj\Debug\TcpLibrary.csprojAssemblyReference.cache
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Net.Library\obj\Debug\SomeProject.Library.dll
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Net.Library\obj\Debug\SomeProject.Library.pdb
