@@ -27,11 +27,6 @@ namespace TCPConnections.TcpClient
         private void SendMsgBtnClick(object sender, EventArgs e)
         {
             if (messageTextBox.Text == string.Empty || messageTextBox.Text == "Your message") return;
-            if (!client.CanConnectToServer())
-            {
-                ShowMessage("Server is busy! Try again later.");
-                return;
-            }
 
             OperationResult res = client.SendMessageToServerWithLog(messageTextBox.Text);
             if(res.Result == Result.OK)
@@ -52,11 +47,6 @@ namespace TCPConnections.TcpClient
 
         private void SendFileBtn_Click(object sender, EventArgs e)
         {
-            if (!client.CanConnectToServer())
-            {
-                ShowMessage("Server is busy! Try again later.");
-                return;
-            }
 
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "All files | *.*"; 

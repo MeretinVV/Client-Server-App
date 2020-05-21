@@ -12,19 +12,6 @@ namespace TCPConnections.Library.Client
         private TcpClient _tcpClient;
 
         /// <summary>
-        /// Checks if there are availiable user slots on the server
-        /// </summary>
-        /// <returns>True if there are slots, false if there aren't</returns>
-        public bool CanConnectToServer()
-        {
-            _tcpClient = new TcpClient("127.0.0.1", 8082);
-            NetworkStream stream = _tcpClient.GetStream();
-            int res = stream.ReadByte();
-
-            return res == 1;
-        }
-
-        /// <summary>
         /// Attempts to recieves a message from the server
         /// </summary>
         /// <param name="stream">Stream with the message</param>

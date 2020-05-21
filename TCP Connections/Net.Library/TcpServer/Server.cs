@@ -12,28 +12,17 @@ namespace TCPConnections.Library.Server
     {
         private TcpListener _messageServerListener = new TcpListener(IPAddress.Loopback, 8080);
         private TcpListener _fileServerListener = new TcpListener(IPAddress.Loopback, 8081);
-        private TcpListener _connectCheckerListener = new TcpListener(IPAddress.Loopback, 8082);
 
         private int _fileCount = 0;
-        private int _currentUsers = 0;
-        private int _maxUsers;
 
         private CancellationTokenSource _cancelTokenSource;
         private CancellationToken _token;
 
-        public Server(int maxUsers)
+        public Server()
         {
-            _maxUsers = maxUsers;
             _cancelTokenSource = new CancellationTokenSource();
             _token = _cancelTokenSource.Token;
-
-            Task.Run(() => TurnOnConnectCheckerListener());
         }
-
-        /// <summary>
-        /// Returns whether the server has availiable user slots or not
-        /// </summary>
-        public bool CanConnect => _currentUsers < _maxUsers;
 
         /// <summary>
         /// Stops all listeners and shuts down the server
@@ -60,22 +49,6 @@ namespace TCPConnections.Library.Server
         }
 
         /// <summary>
-        /// Turns on connect checker listener
-        /// </summary>
-        private async Task TurnOnConnectCheckerListener()
-        {
-            if (_connectCheckerListener != null) _connectCheckerListener.Start();
-
-            while(!_token.IsCancellationRequested)
-            {
-                TcpClient client = _connectCheckerListener.AcceptTcpClient();
-                NetworkStream stream = client.GetStream();
-                stream.WriteByte(CanConnect ? (byte)1 : (byte)0);
-                //stream.Flush();
-            }
-        }
-
-        /// <summary>
         /// Turns on message listener
         /// </summary>
         public async Task TurnOnMessageListener()
@@ -90,8 +63,6 @@ namespace TCPConnections.Library.Server
                     OperationResult res;
                     TcpClient client = _messageServerListener.AcceptTcpClient();
                     
-                    Interlocked.Increment(ref _currentUsers);
-
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     using (StreamReader reader = new StreamReader(client.GetStream()))
                     {
@@ -109,7 +80,6 @@ namespace TCPConnections.Library.Server
                         }
                     }
                     client.Close();
-                    Interlocked.Decrement(ref _currentUsers);
                 }
 
                 TurnOffListener(_messageServerListener);
@@ -135,8 +105,6 @@ namespace TCPConnections.Library.Server
                     OperationResult res;
                     TcpClient client = _fileServerListener.AcceptTcpClient();
 
-                    Interlocked.Increment(ref _currentUsers);
-
                     using (StreamWriter writer = new StreamWriter(client.GetStream()))
                     using (NetworkStream reader = client.GetStream())
                     {
@@ -154,7 +122,6 @@ namespace TCPConnections.Library.Server
                         }
                     }
                     client.Close();
-                    Interlocked.Decrement(ref _currentUsers);
                 }
                 TurnOffListener(_fileServerListener);
             }
