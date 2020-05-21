@@ -1,0 +1,9 @@
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\bin\Debug\TcpServer.exe.config
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\bin\Debug\TcpServer.exe
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\bin\Debug\TcpServer.pdb
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\bin\Debug\SomeProject.Library.dll
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\bin\Debug\SomeProject.Library.pdb
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\obj\Debug\TcpServer.csprojAssemblyReference.cache
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\obj\Debug\TcpServer.csproj.CopyComplete
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\obj\Debug\TcpServer.exe
+C:\Users\Jack\Desktop\Технология разработки\10. TCP Connections\TCP Connections\Tcp.Server\obj\Debug\TcpServer.pdb
